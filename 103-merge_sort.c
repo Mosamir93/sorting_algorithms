@@ -8,9 +8,9 @@
  */
 void copy_elements(int *dest, const int *src, size_t size)
 {
-    for (size_t i =   0; i < size; i++) {
-        dest[i] = src[i];
-    }
+	for (size_t i =   0; i < size; i++) {
+		dest[i] = src[i];
+	}
 }
 
 /**
@@ -23,35 +23,30 @@ void copy_elements(int *dest, const int *src, size_t size)
  */
 void merge(int *array, int *l, size_t l_size, int *r, size_t r_size)
 {
-    size_t i =   0, j =   0, k =   0;
-    int *temp = malloc((l_size + r_size) * sizeof(int));
+	size_t i =   0, j =   0, k =   0;
+	int *temp = malloc((l_size + r_size) * sizeof(int));
 
-    printf("Merging...\n");
-    printf("[left]: ");
-    print_array(l, l_size);
-    printf("[right]: ");
-    print_array(r, r_size);
+	printf("Merging...\n");
+	printf("[left]: ");
+	print_array(l, l_size);
+	printf("[right]: ");
+	print_array(r, r_size);
 
-    while (i < l_size && j < r_size) {
-        if (l[i] <= r[j]) {
-            temp[k++] = l[i++];
-        } else {
-            temp[k++] = r[j++];
-        }
-    }
-
-    copy_elements(temp + k, l + i, l_size - i);
-    k += l_size - i;
-
-    copy_elements(temp + k, r + j, r_size - j);
-    k += r_size - j;
-
-    printf("[Done]: ");
-    print_array(temp, k);
-
-    copy_elements(array, temp, k);
-
-    free(temp);
+	while (i < l_size && j < r_size) {
+		if (l[i] <= r[j]) {
+			temp[k++] = l[i++];
+		} else {
+			temp[k++] = r[j++];
+		}
+	}
+	copy_elements(temp + k, l + i, l_size - i);
+	k += l_size - i;
+	copy_elements(temp + k, r + j, r_size - j);
+	k += r_size - j;
+	printf("[Done]: ");
+	print_array(temp, k);
+	copy_elements(array, temp, k);
+	free(temp);
 }
 
 /**
@@ -63,18 +58,18 @@ void merge(int *array, int *l, size_t l_size, int *r, size_t r_size)
  */
 void merge_sort(int *array, size_t size)
 {
-    if (size <   2) {
-        return;
-    }
+	if (size <   2) {
+		return;
+	}
 
-    size_t mid = size /   2;
-    int *left = array;
-    int *right = array + mid;
-    size_t left_size = mid;
-    size_t right_size = size - mid;
+	size_t mid = size /   2;
+	int *left = array;
+	int *right = array + mid;
+	size_t left_size = mid;
+	size_t right_size = size - mid;
 
-    merge_sort(left, left_size);
-    merge_sort(right, right_size);
+	merge_sort(left, left_size);
+	merge_sort(right, right_size);
 
-    merge(array, left, left_size, right, right_size);
+	merge(array, left, left_size, right, right_size);
 }
