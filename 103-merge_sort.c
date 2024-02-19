@@ -58,20 +58,20 @@ void merge(int *array, int *l, size_t l_size, int *r, size_t r_size)
  */
 void merge_sort(int *array, size_t size)
 {
-	size_t mid, left_size, right_size;
-	int *left, *right;
+	size_t mid, l_size, r_size;
+	int *l, *r;
 
 	if (size < 2)
 		return;
 
 	mid = size / 2;
-	*left = array;
-	*right = array + mid;
-	left_size = mid;
-	right_size = size - mid;
+	*l = array;
+	*r = array + mid;
+	l_size = mid;
+	r_size = size - mid;
 
-	merge_sort(left, left_size);
-	merge_sort(right, right_size);
+	merge_sort(l, l_size);
+	merge_sort(r, r_size);
 
-	merge(array, left, left_size, right, right_size);
+	merge(array, l, l_size, r, r_size);
 }
