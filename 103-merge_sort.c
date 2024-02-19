@@ -8,7 +8,9 @@
  */
 void copy_elements(int *dest, const int *src, size_t size)
 {
-	for (size_t i =   0; i < size; i++)
+	size_t i;
+
+	for (i = 0; i < size; i++)
 		dest[i] = src[i];
 }
 
@@ -30,14 +32,12 @@ void merge(int *array, int *l, size_t l_size, int *r, size_t r_size)
 	print_array(l, l_size);
 	printf("[right]: ");
 	print_array(r, r_size);
-    while (i < l_size && j < r_size)
-    {
+	while (i < l_size && j < r_size)
+	{
 		if (l[i] <= r[j])
-        {
 			temp[k++] = l[i++];
-		} else {
+		else
 			temp[k++] = r[j++];
-		}
 	}
 	copy_elements(temp + k, l + i, l_size - i);
 	k += l_size - i;
@@ -58,15 +58,17 @@ void merge(int *array, int *l, size_t l_size, int *r, size_t r_size)
  */
 void merge_sort(int *array, size_t size)
 {
-	if (size <   2) {
-		return;
-	}
+	size_t mid, left_size, right_size;
+	int *left, *right;
 
-	size_t mid = size /   2;
-	int *left = array;
-	int *right = array + mid;
-	size_t left_size = mid;
-	size_t right_size = size - mid;
+	if (size < 2)
+		return;
+
+	mid = size / 2;
+	*left = array;
+	*right = array + mid;
+	left_size = mid;
+	right_size = size - mid;
 
 	merge_sort(left, left_size);
 	merge_sort(right, right_size);
