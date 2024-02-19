@@ -7,10 +7,11 @@
  *
  * Return: nothing
  */
-void _swap(int *a, int *b) {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
+void _swap(int *a, int *b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
 /**
@@ -24,35 +25,35 @@ void _swap(int *a, int *b) {
  */
 int lomuto_Partition(int *array, int min, int max, size_t size)
 {
-    int pivot = array[max];
-    int i = min -  1, j = min;
+	int pivot = array[max];
+	int i = min -  1, j = min;
 
-    while (j < max)
-    {
-        if (array[j] <= pivot)
-        {
-            i++;
-            if (j != i)
-            {
-                _swap(&array[i], &array[j]);
-                print_array(array, size);
-            }
-        }
-        j++;
-    }
-    if (max != i + 1)
-    {
-        _swap(&array[i + 1], &array[max]);
-        print_array(array, size);
-    }
-    return i + 1;
+	while (j < max)
+	{
+		if (array[j] <= pivot)
+		{
+			i++;
+			if (j != i)
+			{
+				_swap(&array[i], &array[j]);
+				print_array(array, size);
+			}
+		}
+		j++;
+	}
+	if (max != i + 1)
+	{
+		_swap(&array[i + 1], &array[max]);
+		print_array(array, size);
+	}
+	return (i + 1);
 }
 
 /**
  * quicksort - quick sort recursive function
  * @array: array to sort
- * @low: starting index
- * @high: ending index
+ * @min: starting index
+ * @max: ending index
  * @size: size of the array
  *
  * Return: nothing
@@ -71,8 +72,8 @@ void quicksort(int *array, int min, int max, size_t size)
 
 /**
  * quick_sort - Sorts an array of integers in ascending
- * order using the Quick sort algorithm. 
- * 
+ * order using the Quick sort algorithm.
+ *
  * @array: array to sort
  * @size: size of the array
  *
