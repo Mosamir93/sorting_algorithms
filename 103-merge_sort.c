@@ -65,8 +65,8 @@ void merge_sort(int *array, size_t size)
 		return;
 
 	mid = size / 2;
-	*l = array;
-	*r = array + mid;
+	l = array;
+	r = array + mid;
 	l_size = mid;
 	r_size = size - mid;
 
