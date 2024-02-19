@@ -8,18 +8,17 @@
  */
 void copy_elements(int *dest, const int *src, size_t size)
 {
-	for (size_t i =   0; i < size; i++) {
+	for (size_t i =   0; i < size; i++)
 		dest[i] = src[i];
-	}
 }
 
 /**
  * merge - Merges two sorted sub-arrays into a single sorted array.
  * @array: Pointer to the array of integers to be sorted.
- * @left: Pointer to the first element of the left sub-array.
- * @left_size: The number of elements in the left sub-array.
- * @right: Pointer to the first element of the right sub-array.
- * @right_size: The number of elements in the right sub-array.
+ * @l: Pointer to the first element of the left sub-array.
+ * @l_size: The number of elements in the left sub-array.
+ * @r: Pointer to the first element of the right sub-array.
+ * @r_size: The number of elements in the right sub-array.
  */
 void merge(int *array, int *l, size_t l_size, int *r, size_t r_size)
 {
@@ -31,9 +30,10 @@ void merge(int *array, int *l, size_t l_size, int *r, size_t r_size)
 	print_array(l, l_size);
 	printf("[right]: ");
 	print_array(r, r_size);
-
-	while (i < l_size && j < r_size) {
-		if (l[i] <= r[j]) {
+    while (i < l_size && j < r_size)
+    {
+		if (l[i] <= r[j])
+        {
 			temp[k++] = l[i++];
 		} else {
 			temp[k++] = r[j++];
