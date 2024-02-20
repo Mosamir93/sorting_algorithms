@@ -33,5 +33,6 @@ void quicksort(int *array, int min, int max, size_t size);
 void merge_sort(int *array, size_t size);
 void merge(int *array, int *l, size_t l_size, int *r, size_t r_size);
 void copy_elements(int *dest, const int *src, size_t size);
+void counting_sort(int *array, size_t size);
 
 #endif
