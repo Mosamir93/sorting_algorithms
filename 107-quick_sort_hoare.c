@@ -68,7 +68,7 @@ void _quicksort(int *array, size_t first, size_t last, int size)
 
 /**
  *quick_sort_hoare - prepare the terrain to quicksort algorithm
- *@array: array
+ *@array: array of numbers
  *@size: array size
  */
 void quick_sort_hoare(int *array, size_t size)
