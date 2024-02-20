@@ -41,7 +41,7 @@ void swap_heap(int *a, int *b);
 int find_max(int *array, int n, int i);
 void heapify(int *array, int n, int i, size_t size);
 void quick_sort_hoare(int *array, size_t size);
-void quicksort(int *array, size_t first, size_t last, int size);
+void _quicksort(int *array, size_t first, size_t last, int size);
 int hoare_partition(int *array, int first, int last, int size);
 void swap(int *array, size_t a, size_t b);
 
