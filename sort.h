@@ -36,5 +36,9 @@ void copy_elements(int *dest, const int *src, size_t size);
 void counting_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
 void bitonic_sort(int *array, size_t size);
+void heap_sort(int *array, size_t size);
+void swap_heap(int *a, int *b);
+int find_max(int *array, int n, int i);
+void heapify(int *array, int n, int i, size_t size);
 
 #endif
